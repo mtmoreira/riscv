@@ -2,7 +2,10 @@
 	#include <verilated_vcd_c.h>
 #endif
 #include <verilated.h>
+#include <string>
 #include "Valu_32i.h"
+#define STRING_(x) #x
+#define STRING(x) STRING_(x)
 
 vluint64_t main_time = 0;	// Current simulation time (64-bit unsigned)
 
@@ -17,7 +20,7 @@ int main(int argc, char **argv, char **env) {
 		top->trace (tfp, 99);	// Trace 99 levels of hierarchy
 		tfp->VerilatedVcdC::set_time_unit("1ps");
 		tfp->VerilatedVcdC::set_time_resolution("1ps");
-		tfp->open ("vlt_dump.vcd");	// Open the dump file
+		tfp->open (STRING(VCD_FILE));	// Open the dump file
 	#endif
 
 	// while (!Verilated::gotFinish())
