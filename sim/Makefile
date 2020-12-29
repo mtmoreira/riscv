@@ -18,7 +18,7 @@ endif
 ifndef DESIGN
 	DESIGN=alu_32i
 endif
-COMPILER_FLAGS:=$(COMPILER_FLAGS) $(RTL_FOLDER)/$(DESIGN).v --exe $(TB_FOLDER)/tb_$(DESIGN).cpp
+COMPILER_FLAGS:=$(COMPILER_FLAGS) --top-module $(DESIGN) -F ./file_list/$(DESIGN).f --exe $(TB_FOLDER)/tb_$(DESIGN).cpp
 CLEAN_FILES=verilator_sim vcd
 ################################################################################
 # Main
