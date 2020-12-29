@@ -23,14 +23,6 @@ int main(int argc, char **argv, char **env) {
 		tfp->open (STRING(VCD_FILE));	// Open the dump file
 	#endif
 
-	// while (!Verilated::gotFinish())
-	// {
-	// static int clk = 0;
-	// clk = (clk+1) & 1;
-
-	//uint32_t palentry = rand();
-	// static uint32_t palentry = 0;
-	// palentry+=1000;
 	uint32_t a, b;
 	for (int oper=0; oper<10; oper++) {
 		a = rand();
@@ -45,7 +37,6 @@ int main(int argc, char **argv, char **env) {
 		printf("\noper: %d, a: 0x%08X, b: 0x%08X, z: 0x%08X\n",oper,a,b,top->z_o);
 		main_time++;
 	}
-	// }
 	#if VM_TRACE
 	    if (tfp) tfp->close();
 	#endif

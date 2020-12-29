@@ -32,7 +32,7 @@ int main(int argc, char **argv, char **env) {
 	uint32_t d;
 	clk = 0;
 	rst = 1;
-	while (main_time < SIM_TIME)
+	while (main_time <= SIM_TIME)
 	{
 		if (main_time % (CLOCK_PERIOD/2) == 0) {
 			clk = (clk + 1) & 1;
@@ -42,7 +42,7 @@ int main(int argc, char **argv, char **env) {
 		if (main_time >= RST_TIME) {
 			rst = 0;
 		}
-		ce = rand();
+		ce = rand() % 2;
 		d = rand();
 		top->rst_i = rst;
 		top->ce_i = ce;
